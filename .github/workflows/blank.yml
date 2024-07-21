@@ -1,0 +1,26 @@
+name: Lint and Type Check
+
+on:
+  push:
+
+jobs:
+  lint-and-type-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.in-project true
+    - name: Install dependencies
+      run: poetry install
+    - name: Run linter
+      run: poetry run ruff check .
+    - name: Run type checker
+      run: poetry run mypy .
