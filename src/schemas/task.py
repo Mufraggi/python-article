@@ -13,4 +13,3 @@ class Task(SQLModel, table=True):
     description: Optional[str] = None
     is_completed: bool = False
 
-
