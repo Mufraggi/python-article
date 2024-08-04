@@ -24,3 +24,5 @@ jobs:
       run: poetry run ruff check .
     - name: Run type checker
       run: poetry run mypy .
+    - name: Run test
+      run: poetry run pytest
