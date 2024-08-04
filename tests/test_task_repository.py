@@ -29,7 +29,7 @@ def test_create_task(task_repository):
     assert created_task.id is not None
     assert created_task.title == "Test Task"
     assert created_task.description == "Test Description"
-    assert created_task.is_completed == False
+    assert not created_task.is_completed
 
 
 def test_get_task_by_id(task_repository):
