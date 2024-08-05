@@ -1,7 +1,7 @@
 import pytest
 from uuid import uuid4
 from sqlmodel import Session, SQLModel, create_engine
-from src.repositories.task_repository import TaskRepository
+from src.repositories.task_repository import TaskRepository, create_task_repository
 from src.schemas.task import Task, TaskId
 
 
@@ -20,7 +20,7 @@ def session(engine):
 
 @pytest.fixture(scope="function")
 def task_repository(session):
-    return TaskRepository(session)
+    return create_task_repository(session)
 
 
 def test_create_task(task_repository):
