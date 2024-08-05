@@ -7,11 +7,13 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+sqlmodel = "^0.0.21"
 
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.4"
 mypy = "^1.11.0"
+pytest = "^8.3.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -21,7 +23,7 @@ build-backend = "poetry.core.masonry.api"
 line-length = 120
 target-version = "py311"
 select = ["E", "F", "I"]
-ignore = ["D100", "D104", "I001"]
+ignore = ["D100", "D104", "I001", "F401"]
 
 [tool.ruff.per-file-ignores]
 "__init__.py" = ["F401"]
